@@ -1,0 +1,273 @@
+/* Importing fonts */
+
+@font-face {
+    font-family: 'Soria';
+    src: url('./fonts/Soria-Soria.woff2') format('woff2'),
+        url('./fonts/Soria-Soria.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'archia';
+    src: url('./fonts/archia-regular-webfont.woff2') format('woff2'),
+         url('./fonts/archia-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Crake';
+    src: url('./fonts/Crake-Bold.woff2') format('woff2'),
+        url('./fonts/Crake-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Styles at html & body */
+
+html {
+    overflow-y: scroll; 
+    scrollbar-width: none; 
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #F0E8D8;
+}
+
+/* Container with margins */
+
+.container {
+    margin: 2rem 8rem;
+    height: 100vh;
+}
+
+/* Nav Bar */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+    color: #411900;
+    font-family: Crake;
+}
+
+.nav__logo h3 {
+    font-size: 2rem;
+    margin: 0;
+    padding-left: 40px;
+    text-align: center;
+}
+
+.inverted-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.inverted-text h6 {
+    writing-mode: vertical-rl; 
+    transform: rotate(180deg); 
+    font-size: 1.6rem; 
+    margin-right: 0.5rem; 
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.inverted-text h1 {
+    font-size: 12rem;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    line-height: 1; 
+}
+
+.nav__items-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20rem;
+}
+
+.nav__items {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    list-style: none;
+    font-size: 2rem;
+    font-family: archia;
+    font-weight: 700;
+}
+
+.nav__items a {
+    text-decoration: none;
+    color: #411900;
+}
+
+.nav__button {
+    margin-left: 12rem;
+    font-family: soria, "DM Sans", serif;
+    background: #411900;
+    border-radius: 4.3rem;
+    padding: 2rem;
+    font-size: 2rem;
+    color: #F0E8D8;
+    border: 0;
+}
+
+.nav__button:hover {
+    background: #854D2C;
+    border-radius: 4.3rem;
+    padding: 2rem;
+    font-size: 2rem;
+    color: #F0E8D8;
+}
+
+/* Hero Text */
+
+.hero-text {
+    margin: 6rem;
+    text-align: center;
+    font-size: 13rem;
+    font-family: Soria;
+}
+
+.hero-text p {
+    margin: 0;
+    padding: 0;
+}
+
+.hero-text__color1 {
+    color: #E84A27;
+}
+
+.hero-text__color2 {
+    color: #C02C56;
+}
+
+/* Mouse Scroll Animation */
+
+.scroll-animation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mouse {
+    background: #411900 linear-gradient(transparent 0%, transparent 50%, #F0E8D8 50%, #F0E8D8 100%);
+    position: relative;
+    width: 30px;
+    height: 150px;
+    border-radius: 50px;
+    background-size: 100% 200%;
+    animation: colorSlide 5s linear infinite, nudgeMouse 5s ease-out infinite;
+}
+  
+.mouse:before,
+.mouse:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.mouse:before {
+    width: 20px;  /* Further reduced width */
+    height: 140px; /* Further increased height */
+    background-color: #411900;
+    border-radius: 50px; /* Adjusted for proper proportions */
+}
+
+.mouse:after {
+    background-color: #F0E8D8;
+    width: 6px;  /* Further reduced width */
+    height: 20px; /* Slightly increased height */
+    border-radius: 100%;
+    animation: trackBallSlide 5s linear infinite;
+}
+
+@keyframes colorSlide {
+    0% { background-position: 0% 100%; }
+    20% { background-position: 0% 0%; }
+    21% { background-color: #411900; }
+    29.99% { background-color: #F0E8D8; background-position: 0% 0%; }
+    30% { background-color: #411900; background-position: 0% 100%; }
+    50% { background-position: 0% 0%; }
+    51% { background-color: #411900; }
+    59% { background-color: #F0E8D8; background-position: 0% 0%; }
+    60% { background-color: #411900; background-position: 0% 100%; }
+    80% { background-position: 0% 0%; }
+    81% { background-color: #411900; }
+    90%, 100% { background-color: #F0E8D8; }
+}
+
+@keyframes trackBallSlide {
+    0% { opacity: 1; transform: scale(1) translateY(-30px); }
+    6% { opacity: 1; transform: scale(0.9) translateY(10px); }
+    14% { opacity: 0; transform: scale(0.4) translateY(60px); }
+    15%, 19% { opacity: 0; transform: scale(0.4) translateY(-30px); }
+    28%, 29.99% { opacity: 1; transform: scale(1) translateY(-30px); }
+    30% { opacity: 1; transform: scale(1) translateY(-30px); }
+    36% { opacity: 1; transform: scale(0.9) translateY(10px); }
+    44% { opacity: 0; transform: scale(0.4) translateY(60px); }
+    45%, 49% { opacity: 0; transform: scale(0.4) translateY(-30px); }
+    58%, 59.99% { opacity: 1; transform: scale(1) translateY(-30px); }
+    60% { opacity: 1; transform: scale(1) translateY(-30px); }
+    66% { opacity: 1; transform: scale(0.9) translateY(10px); }
+    74% { opacity: 0; transform: scale(0.4) translateY(60px); }
+    75%, 79% { opacity: 0; transform: scale(0.4) translateY(-30px); }
+    88%, 100% { opacity: 1; transform: scale(1) translateY(-30px); }
+}
+
+@keyframes nudgeMouse {
+    0% { transform: translateY(0); }
+    20% { transform: translateY(10px); }
+    30% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    60% { transform: translateY(0); }
+    80% { transform: translateY(10px); }
+    90% { transform: translateY(0); }
+}
+
+@keyframes nudgeText {
+    0% { transform: translateY(0); }
+    20% { transform: translateY(2px); }
+    30% { transform: translateY(0); }
+    50% { transform: translateY(2px); }
+    60% { transform: translateY(0); }
+    80% { transform: translateY(2px); }
+    90% { transform: translateY(0); }
+}
+
+@keyframes colorText {
+    21% { color: #411900; }
+    30% { color: #F0E8D8; }
+    51% { color: #411900; }
+    60% { color: #F0E8D8; }
+    81% { color: #411900; }
+    90% { color: #F0E8D8; }
+}
